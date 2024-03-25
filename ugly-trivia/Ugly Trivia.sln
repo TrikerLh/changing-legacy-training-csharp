@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trivia", "Trivia\Trivia.csproj", "{D53462B4-2E89-4114-9BF7-B507EA3332FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trivia.Tests", "Trivia.Tests\Trivia.Tests.csproj", "{A91052AE-66CA-472E-BE55-29DB3C3A3E8F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D53462B4-2E89-4114-9BF7-B507EA3332FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D53462B4-2E89-4114-9BF7-B507EA3332FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D53462B4-2E89-4114-9BF7-B507EA3332FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D53462B4-2E89-4114-9BF7-B507EA3332FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A91052AE-66CA-472E-BE55-29DB3C3A3E8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A91052AE-66CA-472E-BE55-29DB3C3A3E8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A91052AE-66CA-472E-BE55-29DB3C3A3E8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A91052AE-66CA-472E-BE55-29DB3C3A3E8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
