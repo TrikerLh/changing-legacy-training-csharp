@@ -9,6 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="ApprovalTests" Version="6.0.0" />
       <PackageReference Include="coverlet.collector" Version="6.0.2">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -30,8 +31,8 @@
 
     <Target Name="Coverlet">
         <!-- set security on binaries-->
-        <Exec Command="dotnet test /p:CollectCoverage=true /p:CoverletOutput=coverage/data/coverage /p:CoverletOutputFormat=cobertura"/>
-        <Exec Command="dotnet reportgenerator -reports:coverage/data/coverage.cobertura.xml -targetdir:coverage/report"/>
+        <Exec Command="dotnet test /p:CollectCoverage=true /p:CoverletOutput=coverage/data/coverage /p:CoverletOutputFormat=cobertura" />
+        <Exec Command="dotnet reportgenerator -reports:coverage/data/coverage.cobertura.xml -targetdir:coverage/report" />
     </Target>
 
 </Project>
