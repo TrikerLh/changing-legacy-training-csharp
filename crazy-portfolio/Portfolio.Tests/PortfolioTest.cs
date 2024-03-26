@@ -5,7 +5,7 @@ namespace Portfolio.Tests
     public class PortfolioTest
     {
         [Test]
-        public void fix_me()
+        public void Fix_Me()
         {
             var app = new Portfolio("../../../portfolio.csv");
 
