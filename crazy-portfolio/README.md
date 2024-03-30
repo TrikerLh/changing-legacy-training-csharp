@@ -1,5 +1,9 @@
 # Crazy Portofolio
 
+## Install dependencies and tools
+
+`dotnet restore`
+
 ## Coverage
 
 `dotnet msbuild -target:Coverlet`
