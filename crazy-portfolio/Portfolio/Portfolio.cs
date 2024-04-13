@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+using System.Globalization;
+using static System.Globalization.CultureInfo;
 
 namespace Portfolio
 {
@@ -21,9 +22,8 @@ namespace Portfolio
             foreach (var line in lines)
             {
                 var columns = line.Split(",");
-                var provider = new CultureInfo("fr-FR");
                 var asset = new Asset(columns[0],
-                    DateTime.Parse(columns[1], provider),
+                    DateTime.Parse(columns[1], CurrentCulture),
                     columns[0] == "Unicorn" ? new PricelessValue() : new MeasurableValue(float.Parse(columns[2])));
                 
                 if (asset.Date.Subtract(now).TotalDays < 0)
@@ -42,7 +42,7 @@ namespace Portfolio
                                 {
                                     Console.WriteLine(
                                         "Portfolio is priceless because it got a unicorn on " +
-                                        asset.Date.ToString(provider) + "!!!!!");
+                                        asset.Date.ToString(CurrentCulture) + "!!!!!");
                                     return;
                                 }
                             }
@@ -74,7 +74,7 @@ namespace Portfolio
                             {
                                 Console.WriteLine(
                                     "Portfolio is priceless because it got a unicorn on " +
-                                    asset.Date.ToString(provider) + "!!!!!");
+                                    asset.Date.ToString(CurrentCulture) + "!!!!!");
                                 return;
                             }
                         }
@@ -84,7 +84,7 @@ namespace Portfolio
                             {
                                 Console.WriteLine(
                                     "Portfolio is priceless because it got a unicorn on " +
-                                    asset.Date.ToString(provider) + "!!!!!");
+                                    asset.Date.ToString(CurrentCulture) + "!!!!!");
                                 return;   
                             }
                         }
