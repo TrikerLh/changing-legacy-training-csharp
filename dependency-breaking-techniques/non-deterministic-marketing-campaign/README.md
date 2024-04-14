@@ -1,4 +1,4 @@
-Assignment B
+Assignment
 ============
 
 Goal
@@ -28,7 +28,5 @@ Task
 The given `MarketingCampaign` controls the marketing actions which
 run on our online shop. During campaigns we e.g. offer discounts.
 
-* Bring `MarketingCampaign` under test. Make sure to cover all paths in the core logic.
+* Break the dependencies you need to bring `MarketingCampaign` under test. Write at least one test.
 * There is an existing `MarketingCampaignTest` with a first test case which might or might not work.
-
-(This is a copied document - do not edit!)
