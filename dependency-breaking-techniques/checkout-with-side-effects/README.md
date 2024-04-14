@@ -28,8 +28,6 @@ Task
 The given code creates the receipt with the calculated tax
 for a purchase in our online shop. The main logic is in `Checkout`.
 
-* Bring `Checkout` under test. Make sure to cover all paths in the core logic.
+* Break the dependencies you need to bring `Checkout` under test. Write at least one test.
 * There is an existing `CheckoutTest` with a first test case which might or might not work.
 * You cannot change `ReceiptRepository` because it is used by other teams as well.
-
-(This is a copied document - do not edit!)
