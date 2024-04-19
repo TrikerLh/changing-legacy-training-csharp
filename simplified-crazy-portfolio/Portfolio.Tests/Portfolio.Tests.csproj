@@ -30,7 +30,6 @@
     </ItemGroup>
 
     <Target Name="Coverlet">
-        <!-- set security on binaries-->
         <Exec Command="dotnet test /p:CollectCoverage=true /p:CoverletOutput=coverage/data/coverage /p:CoverletOutputFormat=cobertura"/>
         <Exec Command="dotnet reportgenerator -reports:coverage/data/coverage.cobertura.xml -targetdir:coverage/report"/>
     </Target>
