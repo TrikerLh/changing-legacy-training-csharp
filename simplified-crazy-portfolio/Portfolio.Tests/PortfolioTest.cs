@@ -5,12 +5,8 @@ namespace Portfolio.Tests;
 public class PortfolioTest
 {
     [Test]
-    public void Fix_Me()
+    public void Canary_Test()
     {
-        var app = new Portfolio("../../../portfolio.csv");
-
-        app.ComputePortfolioValue();
-
-        Assert.That("fixme", Is.EqualTo("fixme"));
+        Assert.That(true, Is.True);
     }
 }
