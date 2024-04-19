@@ -13,7 +13,7 @@ namespace Gilded_rose.Test
 
             app.UpdateQuality();
 
-            Assert.That(items[0].Name, Is.EqualTo("fixme"));
+            Assert.That(items[0].Name, Is.EqualTo("foo"));
         }
 
     }
