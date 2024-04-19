@@ -22,7 +22,7 @@ public class Portfolio
         {
             var columns = line.Split(",");
             var asset = new Asset(columns[0],
-                DateTime.Parse(columns[1], CurrentCulture),
+                DateTime.ParseExact(columns[1], "dd/M/yyyy", InvariantCulture),
                 columns[0] == "Unicorn" ? new PricelessValue() : new MeasurableValue(int.Parse(columns[2])));
 
             if (asset.Date.Subtract(now).TotalDays < 0)
