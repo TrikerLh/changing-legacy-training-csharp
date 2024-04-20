@@ -28,5 +28,5 @@ Task
 The given `MarketingCampaign` controls the marketing actions which
 run on our online shop. During campaigns we e.g. offer discounts.
 
-* Break the dependencies you need to bring `MarketingCampaign` under test. Write at least one test.
+* Break the dependencies you need to bring `MarketingCampaign` under test, so that you can fix the existing tests.
 * There is an existing `MarketingCampaignTest` with a first test case which might or might not work.
