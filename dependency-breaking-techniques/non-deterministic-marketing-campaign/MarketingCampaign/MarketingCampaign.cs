@@ -7,15 +7,15 @@ public class MarketingCampaign
     {
         return MilliSeconds() % 2 == 0;
     }
+    
+    public bool IsCrazySalesDay()
+    {
+        return DayOfTheWeek().Equals(DayOfWeek.Friday); ;
+    }
 
     private long MilliSeconds()
     {
         return (long) DateTime.Now.TimeOfDay.TotalMilliseconds;
-    }
-
-    public bool IsCrazySalesDay()
-    {
-        return DayOfTheWeek().Equals(DayOfWeek.Friday); ;
     }
 
     private DayOfWeek DayOfTheWeek()
