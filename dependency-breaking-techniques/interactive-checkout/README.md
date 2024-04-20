@@ -15,20 +15,11 @@ Changing code without test is risky, so we want to
 * Rely on automated Refactoring tools as much as possible.
 * You must not change the public API of the class.
 
-Problem Category
-----------------
-
-The system under test depends on a collaborator with
-user interaction. The manual step is not suitable for our
-test environment. The collaborator is created inside the class.
-
 Task
 ----
 
 The given code collects the necessary user confirmations
 during a purchase in our online shop. The main logic is in `Checkout`.
 
-* Break the dependencies you need to bring `Checkout` under test. Write at least one test. 
+* Break the dependencies you need to bring `Checkout` under test, so that you can fix the existing test, then write more tests if oyu have time.
 * There is an existing `CheckoutTest` with a first test case which might or might not work.
-
-(This is a copied document - do not edit!)
