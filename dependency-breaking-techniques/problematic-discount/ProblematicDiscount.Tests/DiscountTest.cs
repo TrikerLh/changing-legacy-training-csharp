@@ -6,15 +6,12 @@ public class DiscountTest
 {
 
     [Test]
-    public void Fix_Me()
+    public void Discount_On_Crazy_Sales_Day()
     {
         var discount = new Discount();
 
-        var net = new Money(110);
-        var total = discount.DiscountFor(net);
+        var total = discount.DiscountFor(new Money(100.0m));
 
-        Assert.That(new Money(104.5m), Is.EqualTo(total));
+        Assert.That(total, Is.EqualTo(new Money(85.0m)));
     }
-    
-    
 }

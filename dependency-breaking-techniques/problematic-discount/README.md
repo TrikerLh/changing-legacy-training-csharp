@@ -28,6 +28,7 @@ Task
 The given code calculates the discount for a purchase in
 our online shop. The main logic is in `Discount`.
 
-* Break the dependencies you need to bring `Discount` under test. Write at least one test. 
 * There is an existing `DiscountTest` with a first test case which might or might not work.
+* Break the dependencies you need to bring `Discount` under test. 
+* Fix the existing test and only the write more tests to cover the rest of `Discount`'s code.
 * You cannot change `MarketingCampaign` because it is used by other teams as well.

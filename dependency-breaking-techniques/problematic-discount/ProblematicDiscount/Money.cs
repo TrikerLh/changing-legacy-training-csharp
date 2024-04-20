@@ -12,9 +12,9 @@ public record Money
 
     public Money(decimal value) => _value = value;
 
-    public Money ReduceBy(int p)
+    public Money ReduceBy(int percentage)
     {
-        return new Money(_value * (100m - p) / 100m);
+        return new Money(_value * (100m - percentage) / 100m);
     }
 
     public bool MoreThan(Money other)
