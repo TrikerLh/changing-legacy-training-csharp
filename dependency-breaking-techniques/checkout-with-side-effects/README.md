@@ -15,12 +15,6 @@ Changing code without test is risky, so we want to
 * Rely on automated Refactoring tools as much as possible.
 * You must not change the public API of the class.
 
-Problem Category
-----------------
-
-The system under test depends on a collaborator with
-database access. The database is not available in our
-test environment. The collaborator is a static call.
 
 Task
 ----
