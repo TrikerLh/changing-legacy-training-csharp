@@ -1,7 +1,6 @@
-namespace InteractiveCheckout
+namespace InteractiveCheckout;
+
+public interface IEmailService
 {
-    public interface IEmailService
-    {
-        void SubscribeUserFor(Product product);
-    }
+    void SubscribeUserFor(Product product);
 }
