@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProblematicSearcher", "ProblematicSearcher\ProblematicSearcher.csproj", "{FE7C232F-D322-4E3C-BF6D-8B200585C116}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProblematicSearcher.Test", "ProblematicSearcher.Test\ProblematicSearcher.Test.csproj", "{1D27C12A-7F1E-47DB-8448-C21E2BF7463B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE7C232F-D322-4E3C-BF6D-8B200585C116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE7C232F-D322-4E3C-BF6D-8B200585C116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE7C232F-D322-4E3C-BF6D-8B200585C116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE7C232F-D322-4E3C-BF6D-8B200585C116}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D27C12A-7F1E-47DB-8448-C21E2BF7463B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D27C12A-7F1E-47DB-8448-C21E2BF7463B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D27C12A-7F1E-47DB-8448-C21E2BF7463B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D27C12A-7F1E-47DB-8448-C21E2BF7463B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
