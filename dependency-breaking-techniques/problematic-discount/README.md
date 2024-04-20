@@ -15,13 +15,6 @@ Changing code without test is risky, so we want to
 * Rely on automated Refactoring tools as much as possible.
 * You must not change the public API of the class.
 
-Problem Category
-----------------
-
-The system under test depends on a collaborator with
-non deterministic behaviour. The collaborator is
-initialised in the constructor.
-
 Task
 ----
 
