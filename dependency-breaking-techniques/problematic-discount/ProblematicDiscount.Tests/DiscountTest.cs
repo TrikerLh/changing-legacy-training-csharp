@@ -4,7 +4,6 @@ namespace ProblematicDiscount.Tests;
 
 public class DiscountTest
 {
-
     [Test]
     public void Discount_On_Crazy_Sales_Day()
     {

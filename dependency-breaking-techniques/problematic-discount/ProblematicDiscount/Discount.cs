@@ -11,18 +11,9 @@ public class Discount
 
     public Money DiscountFor(Money netPrice)
     {
-        if (_marketingCampaign.IsCrazySalesDay())
-        {
-            return netPrice.ReduceBy(15);
-        }
-        if (netPrice.MoreThan(Money.OneThousand))
-        {
-            return netPrice.ReduceBy(10);
-        }
-        if (netPrice.MoreThan(Money.OneHundred) && _marketingCampaign.IsActive())
-        {
-            return netPrice.ReduceBy(5);
-        }
+        if (_marketingCampaign.IsCrazySalesDay()) return netPrice.ReduceBy(15);
+        if (netPrice.MoreThan(Money.OneThousand)) return netPrice.ReduceBy(10);
+        if (netPrice.MoreThan(Money.OneHundred) && _marketingCampaign.IsActive()) return netPrice.ReduceBy(5);
         return netPrice;
     }
 }
