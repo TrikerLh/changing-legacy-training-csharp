@@ -15,7 +15,9 @@ public class Receipt
 
     public IEnumerable<string> Format()
     {
-        return new List<string>() { //
+        return new List<string>
+        {
+            //
             "Receipt", //
             "=======", //
             "Item 1 ... " + Amount.Format(), //

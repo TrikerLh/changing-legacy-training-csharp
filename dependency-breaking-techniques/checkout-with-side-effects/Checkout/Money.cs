@@ -4,9 +4,15 @@ public record Money
 {
     private readonly decimal _value;
 
-    public Money(int value) => _value = value;
+    public Money(int value)
+    {
+        _value = value;
+    }
 
-    public Money(decimal value) => _value = value;
+    public Money(decimal value)
+    {
+        _value = value;
+    }
 
     public Money Add(Money other)
     {
@@ -27,9 +33,9 @@ public record Money
     {
         return _value;
     }
-        
+
     public override string ToString()
     {
-        return "Money { "+_value+" }";
+        return "Money { " + _value + " }";
     }
 }
