@@ -13,7 +13,7 @@ public class MarketingCampaignTests
 
         Assert.That(isCrazySalesDay, Is.True);
     }
-        
+
     [Test]
     public void Fix_Me()
     {
