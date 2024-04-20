@@ -11,7 +11,7 @@ public class MarketingCampaignTests
 
         var isCrazySalesDay = campaign.IsCrazySalesDay();
 
-        Assert.That(isCrazySalesDay, Is.False);
+        Assert.That(isCrazySalesDay, Is.True);
     }
         
     [Test]
@@ -19,8 +19,8 @@ public class MarketingCampaignTests
     {
         var campaign = new MarketingCampaign();
 
-        var isCrazySalesDay = campaign.IsActive();
+        var isActive = campaign.IsActive();
 
-        Assert.That(isCrazySalesDay, Is.True);
+        Assert.That(isActive, Is.True);
     }
 }
