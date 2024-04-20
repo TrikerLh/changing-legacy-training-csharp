@@ -23,5 +23,5 @@ our online shop. The main logic is in `Discount`.
 
 * There is an existing `DiscountTest` with a first test case which might or might not work.
 * Break the dependencies you need to bring `Discount` under test. 
-* Fix the existing test and only the write more tests to cover the rest of `Discount`'s code.
+* Fix the existing test and only then write more tests to cover the rest of `Discount`'s code.
 * You cannot change `MarketingCampaign` because it is used by other teams as well.
