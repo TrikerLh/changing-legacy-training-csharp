@@ -10,7 +10,6 @@ public class MarketingCampaign
     public bool IsCrazySalesDay()
     {
         return DayOfTheWeek().Equals(DayOfWeek.Friday);
-        ;
     }
 
     private long MilliSeconds()
