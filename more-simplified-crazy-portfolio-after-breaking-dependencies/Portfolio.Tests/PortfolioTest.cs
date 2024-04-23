@@ -7,7 +7,7 @@ namespace Portfolio.Tests;
 public class PortfolioTest
 {
     [Test]
-    public void value_decreases_by_2_before_now()
+    public void regular_asset_value_decreases_by_2_before_now()
     {
         var portfolio = APortFolio()
             .With(AnAsset().DescribedAs("Some Regular Asset").FromDate("2024/01/15").WithValue(100))
