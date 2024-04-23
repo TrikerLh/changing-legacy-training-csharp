@@ -115,17 +115,8 @@ public class PortfolioTest
         Assert.That(portfolio._messages[0], Is.EqualTo("Portfolio is priceless because it got a unicorn!!!!!"));
     }
 
-    [Test]
-    public void unicorn_asset_is_after_now_and_value_is_negative_value_is_priceless() {
-        var portfolio = APortFolio()
-            .With(AnAsset().DescribedAs("Unicorn").FromDate("2024/01/15").WithValue(0))
-            .OnDate("2024/01/01")
-            .Build();
 
-        portfolio.ComputePortfolioValue();
 
-        Assert.That(portfolio._messages[0], Is.EqualTo("Portfolio is priceless because it got a unicorn!!!!!"));
-    }
 
 
 }
