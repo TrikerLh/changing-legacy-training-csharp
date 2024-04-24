@@ -1,10 +1,13 @@
 ﻿using Newtonsoft.Json;
 using NUnit.Framework;
+using static System.Net.Mime.MediaTypeNames;
 namespace Trivia.Tests;
 public class GameTest
 {
-    [Test]
-    public void Recolect()
+    [TestCase(1)]
+    [TestCase(2)]
+    [TestCase(3)]
+    public void Recolect(int testNumber)
     {
         var aGame = new PrinterGameForTesting();
 
@@ -14,9 +17,9 @@ public class GameTest
         aGame.Add("Fran");
         aGame.Add("Raul");
         aGame.Run();
-        ToFile(string.Join(",", aGame._diceNumbers), "diceNumbers.txt");
-        ToFile(string.Join(",", aGame._wrongAnwers.Select(x => x.ToString().ToLower())), "wrongAnwers.txt");
-        ToFile(string.Join(",", aGame._displayMessages.Select(m => $"\"{m}\"")), "expectedDisplays.txt");
+        ToFile(string.Join(",", aGame._diceNumbers), $"diceNumbers{testNumber}.txt");
+        ToFile(string.Join(",", aGame._wrongAnwers.Select(x => x.ToString().ToLower())), $"wrongAnwers{testNumber}.txt");
+        ToFile(string.Join(",", aGame._displayMessages.Select(m => $"\"{m}\"")), $"expectedDisplays{testNumber}.txt");
     }
     private void ToFile(string text, string filename)
     {
@@ -50,22 +53,25 @@ public class GameTest
             return isWrongAnswer;
         }
     }
-    [Test]
-    public void Run()
+    [TestCase(1)]
+    [TestCase(2)]
+    [TestCase(3)]
+    public void Run(int testNumber)
     {
         var aGame = new GameForTesting();
-        aGame._diceNumbers = File2List("diceNumbers.txt");
-        aGame._wrongAnwers = File2List("wrongAnwers.txt");
+        aGame._diceNumbers = File2List($"diceNumbers{testNumber}.txt");
+        aGame._wrongAnwers = File2List($"wrongAnwers{testNumber}.txt");
         aGame.Add("Kilian");
         aGame.Add("Antonio");
         aGame.Add("Rafa");
         aGame.Add("Fran");
         aGame.Add("Raul");
-        var expected = File2String("expectedDisplays.txt");
+        var expected = File2String($"expectedDisplays{testNumber}.txt");
 
         aGame.Run();
-        ToFile(string.Join(",", aGame._displayMessages.Select(m => $"\"{m}\"")), "displays.txt");
-        var result = File2String("displays.txt");
+        var resultDisplayFile = $"resultDisplays{testNumber}.txt";
+        ToFile(string.Join(",", aGame._displayMessages.Select(m => $"\"{m}\"")), resultDisplayFile);
+        var result = File2String(resultDisplayFile);
 
         Assert.That(result, Is.EqualTo(expected));
     }
