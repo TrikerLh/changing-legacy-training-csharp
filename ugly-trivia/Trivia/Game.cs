@@ -28,13 +28,12 @@ namespace Trivia
         public void Run()
         {
             bool notAWinner;
-            var rand = new Random();
 
             do
             {
-                Roll(rand.Next(5) + 1);
+                Roll(GetDiceNumber());
 
-                if (rand.Next(9) == 7)
+                if (IsWrongAnswer())
                 {
                     notAWinner = WrongAnswer();
                 }
@@ -57,8 +56,8 @@ namespace Trivia
             _purses[HowManyPlayers()] = 0;
             _inPenaltyBox[HowManyPlayers()] = false;
 
-            Console.WriteLine(playerName + " was added");
-            Console.WriteLine("They are player number " + _players.Count);
+            Display(playerName + " was added");
+            Display("They are player number " + _players.Count);
             return true;
         }
 
@@ -69,8 +68,8 @@ namespace Trivia
 
         private void Roll(int roll)
         {
-            Console.WriteLine(_players[_currentPlayer] + " is the current player");
-            Console.WriteLine("They have rolled a " + roll);
+            Display(_players[_currentPlayer] + " is the current player");
+            Display("They have rolled a " + roll);
 
             if (_inPenaltyBox[_currentPlayer])
             {
@@ -78,22 +77,22 @@ namespace Trivia
                 {
                     _isGettingOutOfPenaltyBox = true;
 
-                    Console.WriteLine(_players[_currentPlayer] + " is getting out of the penalty box");
+                    Display(_players[_currentPlayer] + " is getting out of the penalty box");
                     _places[_currentPlayer] = _places[_currentPlayer] + roll;
                     if (_places[_currentPlayer] > 11)
                     {
                         _places[_currentPlayer] = _places[_currentPlayer] - 12;
                     }
 
-                    Console.WriteLine(_players[_currentPlayer]
+                    Display(_players[_currentPlayer]
                                       + "'s new location is "
                                       + _places[_currentPlayer]);
-                    Console.WriteLine("The category is " + CurrentCategory());
+                    Display("The category is " + CurrentCategory());
                     AskQuestion();
                 }
                 else
                 {
-                    Console.WriteLine(_players[_currentPlayer] + " is not getting out of the penalty box");
+                    Display(_players[_currentPlayer] + " is not getting out of the penalty box");
                     _isGettingOutOfPenaltyBox = false;
                 }
             }
@@ -105,10 +104,10 @@ namespace Trivia
                     _places[_currentPlayer] = _places[_currentPlayer] - 12;
                 }
 
-                Console.WriteLine(_players[_currentPlayer]
+                Display(_players[_currentPlayer]
                                   + "'s new location is "
                                   + _places[_currentPlayer]);
-                Console.WriteLine("The category is " + CurrentCategory());
+                Display("The category is " + CurrentCategory());
                 AskQuestion();
             }
         }
@@ -117,25 +116,25 @@ namespace Trivia
         {
             if (CurrentCategory() == "Pop")
             {
-                Console.WriteLine(_popQuestions.First());
+                Display(_popQuestions.First());
                 _popQuestions.RemoveFirst();
             }
 
             if (CurrentCategory() == "Science")
             {
-                Console.WriteLine(_scienceQuestions.First());
+                Display(_scienceQuestions.First());
                 _scienceQuestions.RemoveFirst();
             }
 
             if (CurrentCategory() == "Sports")
             {
-                Console.WriteLine(_sportsQuestions.First());
+                Display(_sportsQuestions.First());
                 _sportsQuestions.RemoveFirst();
             }
 
             if (CurrentCategory() == "Rock")
             {
-                Console.WriteLine(_rockQuestions.First());
+                Display(_rockQuestions.First());
                 _rockQuestions.RemoveFirst();
             }
         }
@@ -161,8 +160,8 @@ namespace Trivia
 
         private bool WrongAnswer()
         {
-            Console.WriteLine("Question was incorrectly answered");
-            Console.WriteLine(_players[_currentPlayer] + " was sent to the penalty box");
+            Display("Question was incorrectly answered");
+            Display(_players[_currentPlayer] + " was sent to the penalty box");
             _inPenaltyBox[_currentPlayer] = true;
 
             _currentPlayer++;
@@ -176,9 +175,9 @@ namespace Trivia
             {
                 if (_isGettingOutOfPenaltyBox)
                 {
-                    Console.WriteLine("Answer was correct!!!!");
+                    Display("Answer was correct!!!!");
                     _purses[_currentPlayer]++;
-                    Console.WriteLine(_players[_currentPlayer]
+                    Display(_players[_currentPlayer]
                                       + " now has "
                                       + _purses[_currentPlayer]
                                       + " Gold Coins.");
@@ -198,9 +197,9 @@ namespace Trivia
             }
             else
             {
-                Console.WriteLine("Answer was corrent!!!!");
+                Display("Answer was corrent!!!!");
                 _purses[_currentPlayer]++;
-                Console.WriteLine(_players[_currentPlayer]
+                Display(_players[_currentPlayer]
                                   + " now has "
                                   + _purses[_currentPlayer]
                                   + " Gold Coins.");
@@ -211,6 +210,21 @@ namespace Trivia
 
                 return winner;
             }
+        }
+
+        protected virtual bool IsWrongAnswer()
+        {
+            return new Random().Next(9) == 7;
+        }
+
+        protected virtual int GetDiceNumber()
+        {
+            return new Random().Next(5) + 1;
+        }
+
+        protected virtual void Display(string message)
+        {
+            Console.WriteLine(message);
         }
     }
 }
