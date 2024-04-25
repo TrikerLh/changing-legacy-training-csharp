@@ -23,7 +23,7 @@ public class GameTest
     }
     private void ToFile(string text, string filename)
     {
-        File.WriteAllText(@"C:\Codesai\forks practicas deliveradas\changing-legacy-training-csharp\ugly-trivia\Trivia.Tests\" + filename, text);
+        File.WriteAllText(@$"{Directory.GetCurrentDirectory()}\{filename}", text);
     }
     public class PrinterGameForTesting : Game
     {
@@ -79,14 +79,14 @@ public class GameTest
     private string File2String(string filename)
     {
         return File.ReadAllText(
-            @"C:\Codesai\forks practicas deliveradas\changing-legacy-training-csharp\ugly-trivia\Trivia.Tests\" +
+            @$"{Directory.GetCurrentDirectory()}\" +
             filename);
     }
 
     private List<string> File2List(string filename)
     {
         var stringFile = File.ReadAllText(
-            @"C:\Codesai\forks practicas deliveradas\changing-legacy-training-csharp\ugly-trivia\Trivia.Tests\" +
+            @$"{Directory.GetCurrentDirectory()}\" +
             filename);
         return stringFile.Split(',').ToList();
     }
