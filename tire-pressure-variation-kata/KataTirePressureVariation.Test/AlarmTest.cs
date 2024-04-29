@@ -7,32 +7,74 @@ namespace KataTirePressureVariation.Test
         [Test]
         public void AlarmActivateWhenPressureIsLowerThanLowPressureThreshold()
         {
-            var alarm = new AlarmForTesting(16);
+            var alarm = new AlarmForTesting(new List<double> { 16 });
             
             alarm.Check();
             
-            Assert.That(alarm._message, Is.EqualTo("Alarm activated!"));
+            Assert.That(alarm._lastMessage, Is.EqualTo("Alarm activated!"));
+        }
+
+        [Test]
+        public void AlarmActivateWhenPressureIsHigherThanHighPressureThreshold() {
+            var alarm = new AlarmForTesting(new List<double>{22});
+
+            alarm.Check();
+
+            Assert.That(alarm._lastMessage, Is.EqualTo("Alarm activated!"));
+        }
+
+        [Test]
+        public void DeactivatedAlarmAfterBeingActivatedIsActivatedAgain() {
+            var alarm = new AlarmForTesting(new List<double> { 16, 20, 500 });
+            alarm.Check();
+            alarm.Check();
+
+            alarm.Check();
+
+            Assert.That(alarm._lastMessage, Is.EqualTo("Alarm activated!"));
+        }
+
+
+        [TestCase(17)]
+        [TestCase(21)]
+        public void ActivatedAlarmDeactivatesWhenPressureInsideSafetyRange(double pressure) {
+            var activatedAlarm = CreateActivatedAlarmSensing(pressure);
+
+            activatedAlarm.Check();
+
+            Assert.That(activatedAlarm._lastMessage, Is.EqualTo("Alarm deactivated!"));
+        }
+
+        private static AlarmForTesting CreateActivatedAlarmSensing(double pressure)
+        {
+            var alarm = new AlarmForTesting(new List<double> { 16, pressure });
+            alarm.Check();
+            return alarm;
         }
     }
 
     public class AlarmForTesting : Alarm
     {
-        public double _pressure;
-        public string _message;
+        public List<double> _pressure;
+        public string _lastMessage;
+        private int _numCheckCalls;
 
-        public AlarmForTesting(double pressure)
+        public AlarmForTesting(List<double> pressure)
         {
             _pressure = pressure;
+            _numCheckCalls = 0;
         }
 
         protected override double GetPsiPressure()
         {
-            return _pressure;
+            var psiPressure = _pressure[_numCheckCalls];
+            _numCheckCalls++;
+            return psiPressure;
         }
 
         protected override void WriteMessage(string message)
         {
-            _message = message;
+            _lastMessage = message;
         }
     }
 }
