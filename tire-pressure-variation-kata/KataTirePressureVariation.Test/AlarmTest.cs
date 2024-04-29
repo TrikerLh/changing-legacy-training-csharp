@@ -25,13 +25,11 @@ namespace KataTirePressureVariation.Test
 
         [Test]
         public void DeactivatedAlarmAfterBeingActivatedIsActivatedAgain() {
-            var alarm = new AlarmForTesting(new List<double> { 16, 20, 500 });
-            alarm.Check();
-            alarm.Check();
+            var deactivatedAlarm = CreateDeactivatedAlarmAfterBeingActivated(500);
 
-            alarm.Check();
+            deactivatedAlarm.Check();
 
-            Assert.That(alarm._lastMessage, Is.EqualTo("Alarm activated!"));
+            Assert.That(deactivatedAlarm._lastMessage, Is.EqualTo("Alarm activated!"));
         }
 
 
@@ -48,6 +46,14 @@ namespace KataTirePressureVariation.Test
         private static AlarmForTesting CreateActivatedAlarmSensing(double pressure)
         {
             var alarm = new AlarmForTesting(new List<double> { 16, pressure });
+            alarm.Check();
+            return alarm;
+        }
+
+        private static AlarmForTesting CreateDeactivatedAlarmAfterBeingActivated(double pressure)
+        {
+            var alarm = new AlarmForTesting(new List<double> { 16, 20, pressure });
+            alarm.Check();
             alarm.Check();
             return alarm;
         }
